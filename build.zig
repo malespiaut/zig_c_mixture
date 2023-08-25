@@ -21,7 +21,7 @@ pub fn build(b: *Build) void {
         "-Wshadow",
     });
 
-    exe.addIncludePath("src");
+    exe.addIncludePath(.{ .path = "src" });
 
     exe.linkSystemLibrary("c");
     b.installArtifact(exe);
