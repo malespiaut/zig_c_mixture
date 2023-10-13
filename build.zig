@@ -11,15 +11,7 @@ pub fn build(b: *Build) void {
         .optimize = optimize,
         .target = target,
     });
-    exe.addCSourceFiles(&.{
-        "src/code.c",
-    }, &.{
-        "-std=c17",
-        "-Wpedantic",
-        "-Wall",
-        "-Wextra",
-        "-Wshadow",
-    });
+    exe.addCSourceFiles(.{ .files = &.{"src/code.c"}, .flags = &.{ "-std=c17", "-Wpedantic", "-Wall", "-Wextra", "-Wshadow" } });
 
     exe.addIncludePath(.{ .path = "src" });
 
